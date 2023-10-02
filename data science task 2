@@ -1,0 +1,30 @@
+# TASK 2 (TITANIC)
+# Make a system in python in which it tells whether the person will be save from sinking. What factors were most likely
+# lead to success-socio-economic status, age, gender and more.
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+
+# Load the dataset (replace 'dataset.csv' with your dataset file)
+data = pd.resad_csv('dataset.csv')
+
+# Define features (X) and labels (y)
+X = data[['Socioeconomic_Status', 'Age', 'Gender', '...']]
+y = data['Survived']
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create a Random Forest classifier (you can choose a different classifier)
+clf = RandomForestClassifier()
+
+# Train the model
+clf.fit(X_train, y_train)
+
+# Make predictions
+y_pred = clf.predict(X_test)
+
+# Evaluate the model
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {accuracy}")
